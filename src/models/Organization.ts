@@ -25,7 +25,7 @@ const OrganizationSchema: Schema = new Schema({
   serverAddress: { type: String }
 });
 
-export const Ticket: Model<Organization> = model<Organization>(
+export const Organization: Model<Organization> = model<Organization>(
   'Organization',
   OrganizationSchema
 );
