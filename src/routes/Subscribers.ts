@@ -1,8 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Subscriber } from './../models/subscriber';
 import { Organization } from '../models/Organization';
 import { Request, Response, Router } from 'express';
-import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
+import { BAD_REQUEST, OK } from 'http-status-codes';
 import { logger } from '@shared';
 
 interface SubscriberData {
@@ -15,13 +14,13 @@ interface SubscriberData {
 const router = Router();
 
 /******************************************************************************
- *          Register Expo Push Token - "POST /api/subscribers/register"
+ *      Get Correct Server Address - "POST /api/subscribers/address"
  ******************************************************************************/
-router.post('/register', async (req: Request, res: Response) => {
+router.post('/address', async (req: Request, res: Response) => {
 	try {
-    const subscriberData: SubscriberData = req.body;
+    const { email } = req.body;
 
-    const emailDomain = subscriberData.email.slice(subscriberData.email.indexOf('@') + 1);
+    const emailDomain = email.slice(email.indexOf('@') + 1);
 
     console.log(emailDomain);
 
