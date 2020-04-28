@@ -4,7 +4,7 @@ declare namespace NodeJS {
     NODE_ENV: 'development' | 'production';
     PORT?: string;
     CORS: string;
-    CREDENTIALS: boolean;
+    CREDENTIALS: string;
     MONGO_URI: string;
     MONGO_DB: string;
     MONGO_USER: string;
