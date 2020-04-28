@@ -32,9 +32,15 @@ router.post('/address', async (req: Request, res: Response) => {
 
 		console.log(organization);
 
+		let trimmedServerAddress = '';
+
+		if (organization.serverAddress.substr(-1) === '/') {
+			trimmedServerAddress = organization.serverAddress.substr(0, organization.serverAddress.length - 1);
+		}
+
 		return res
 			.status(OK)
-			.json({ serverAddress: organization.serverAddress });
+			.json({ serverAddress: trimmedServerAddress ? trimmedServerAddress : organization.serverAddress });
 	} catch (err) {
 		logger.error(err.message, err);
 		return res.status(BAD_REQUEST).json({
