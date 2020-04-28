@@ -1,18 +1,19 @@
 {
-  "name": "check-in-app-backend",
-  "version": "0.0.0",
+  "name": "check-in-app-backend-master",
+  "version": "0.1.0",
   "scripts": {
     "build": "node ./util/build.js",
-    "heroku-postbuild": "node ./util/build.js",
-    "start": "cross-env ENV_FILE=production node -r ./env -r module-alias/register ./dist/start.js",
+    "start": "cross-env ENV_FILE=production node -r ./env -r module-alias/register ./dist/src/start.js",
     "start-dev": "nodemon --config \"./util/nodemon.json\"",
-    "test": "nodemon --config \"./util/nodemon.test.json\""
+    "test": "nodemon --config \"./util/nodemon.test.json\"",
+    "ts-compile": "tsc --build tsconfig.prod.json"
   },
   "_moduleAliases": {
     "@daos": "dist/daos",
-    "@entities": "dist/entities",
-    "@shared": "dist/shared",
-    "@server": "dist/Server"
+    "@entities": "dist/src/entities",
+    "@shared": "dist/src/shared",
+    "@server": "dist/src/Server",
+    "@util": "dist/util"
   },
   "dependencies": {
     "@types/cors": "^2.8.6",
