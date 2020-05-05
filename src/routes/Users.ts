@@ -192,7 +192,6 @@ router.put(
         user.role = UserRoles.Admin;
       }
 
-      console.log(user.role, role);
       await user.save();
       return res.status(OK).json(user);
     } catch (err) {
